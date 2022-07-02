@@ -195,7 +195,7 @@ export class PostRefactoringTIMESTAMP implements MigrationInterface {
 }
 ```
 
-Alternatively you can also output your migrations as Javascript files using the `o` (alias for `--outputJs`) flag. This is useful for Javascript only projects in which TypeScript additional packages are not installed. This command, will generate a new migration file `{TIMESTAMP}-PostRefactoring.js` with the following content:
+Ngoài ra bạncũng có thể chuyển đầu ra của migrations dưới dạng các Javascript files bằng cách sử dụng `o` flag (viết tắt của `--outputJs`). Flag này rất hữu dụng cho các dự án chỉ sử dụng Javascript và đồng thời các packages của Typescript cũng không được cài đặt. Câu lệnh này sẽ tạo ra một migration file mới có tên là `{TIMESTAMP}-PostRefactoring.js` với nội dung như sau:
 
 ```javascript
 const { MigrationInterface, QueryRunner } = require("typeorm");
@@ -212,20 +212,21 @@ module.exports = class PostRefactoringTIMESTAMP {
 }
 ```
 
-See, you don't need to write the queries on your own.
-The rule of thumb for generating migrations is that you generate them after **each** change you made to your models. To apply multi-line formatting to your generated migration queries, use the `p` (alias for `--pretty`) flag.
+Bạn thấy đó, chúng ta không cần phải viết các câu queries khi muốn thay đổi cấu trúc của database nữa.
+Quy tắt ở đây đó là bạn sẽ sinh ra các file migrations sau mỗi thay đổi trong models của bạn. Để áp dụng multi-line format cho migration queries mà bạn tạo ra, bạn có thể sử dụng `p` flag (viết tắt của `--pretty`).
 
 ## Connection option
-If you need to run/revert your migrations for another connection rather than the default, use the `-c` (alias for `--connection`) and pass the config name as an argument
+
+Nếu bạn muốn chạy/ revert migrations cho các connection khác ngoài default connection, hãy sử dụng `-c` flag (viết tắt của `--connection`) và truyền config name như là tham số
 ```
 typeorm -c <your-config-name> migration:{run|revert}
 ```
 
-## Using migration API to write migrations
+## Sử dụng migration API để viết migrations
 
-In order to use an API to change a database schema you can use `QueryRunner`.
+Để có thể sử dụng API cho mục đích thay đổi database schema, bạn có thể sử dụng `QueryRunner`.
 
-Example:
+Ví dụ:
 
 ```ts
 import {MigrationInterface, QueryRunner, Table, TableIndex, TableColumn, TableForeignKey } from "typeorm";
@@ -305,7 +306,7 @@ export class QuestionRefactoringTIMESTAMP implements MigrationInterface {
 getDatabases(): Promise<string[]>
 ```
 
-Returns all available database names including system databases.
+Trả về toàn bộ các database names bao gồm cả các system databases.
 
 ---
 
@@ -313,9 +314,9 @@ Returns all available database names including system databases.
 getSchemas(database?: string): Promise<string[]>
 ```
 
-- `database` - If database parameter specified, returns schemas of that database
+- `database` - Nếu database paramêtr được chỉ định, hàm này sẽ trả về schemas của database đó
 
-Returns all available schema names including system schemas. Useful for SQLServer and Postgres only.
+Trả về toàn bộ các schema names có sẵn bao gồm cả system schemas. Chỉ hữu dụng cho SQLServer và Postgres.
 
 ---
 
@@ -323,7 +324,7 @@ Returns all available schema names including system schemas. Useful for SQLServe
 getTable(tableName: string): Promise<Table|undefined>
 ```
 
-- `tableName` - name of a table to be loaded
+- `tableName` - tên của bảng sẽ được loaded
 
 Loads a table by a given name from the database.
 
