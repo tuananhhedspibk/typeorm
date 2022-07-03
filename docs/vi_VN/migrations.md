@@ -326,7 +326,7 @@ getTable(tableName: string): Promise<Table|undefined>
 
 - `tableName` - tên của bảng sẽ được loaded
 
-Loads a table by a given name from the database.
+Load bảng với tên được chỉ định từ database.
 
 ---
 
@@ -334,9 +334,9 @@ Loads a table by a given name from the database.
 getTables(tableNames: string[]): Promise<Table[]>
 ```
 
-- `tableNames` - name of a tables to be loaded
+- `tableNames` - tên của các bảng sẽ được loaded
 
-Loads a tables by a given names from the database.
+Load các bảng với tên được chỉ định từ database.
 
 ---
 
@@ -344,9 +344,9 @@ Loads a tables by a given names from the database.
 hasDatabase(database: string): Promise<boolean>
 ```
 
-- `database` - name of a database to be checked
+- `database` - tên của database được kiểm tra.
 
-Checks if database with the given name exist.
+Kiểm tra xem database với tên được chỉ định có tồn tại hay không.
 
 ---
 
@@ -354,9 +354,9 @@ Checks if database with the given name exist.
 hasSchema(schema: string): Promise<boolean>
 ```
 
-- `schema` - name of a schema to be checked
+- `schema` - tên của schema sẽ được checked
 
-Checks if schema with the given name exist. Used only for SqlServer and Postgres.
+Kiểm tra schema với tên được chỉ định có tồn tại hay không. Chỉ áp dụng được cho SqlServer và Postgres.
 
 ---
 
@@ -364,9 +364,9 @@ Checks if schema with the given name exist. Used only for SqlServer and Postgres
 hasTable(table: Table|string): Promise<boolean>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 
-Checks if table exist.
+Kiểm tra xem bảng có tồn tại hay không.
 
 ---
 
@@ -374,10 +374,10 @@ Checks if table exist.
 hasColumn(table: Table|string, columnName: string): Promise<boolean>
 ```
 
-- `table` - Table object or name
-- `columnName` - name of a column to be checked
+- `table` - Table object hoặc tên bảng
+- `columnName` - tên của cột sẽ được kiểm tra
 
-Checks if column exist in the table.
+Kiểm tra xem cột có tồn tại trong bảng hay không.
 
 ---
 
@@ -385,10 +385,10 @@ Checks if column exist in the table.
 createDatabase(database: string, ifNotExist?: boolean): Promise<void>
 ```
 
-- `database` - database name
-- `ifNotExist` - skips creation if `true`, otherwise throws error if database already exist
+- `database` - tên của database
+- `ifNotExist` - bỏ qua việc tạo database nếu bằng `true`, ngược lại sẽ đưa ra lỗi nếu database đã tồn tại
 
-Creates a new database.
+Tạo một database mới.
 
 ---
 
@@ -396,10 +396,10 @@ Creates a new database.
 dropDatabase(database: string, ifExist?: boolean): Promise<void>
 ```
 
-- `database` - database name
-- `ifExist` - skips deletion if `true`, otherwise throws error if database was not found
+- `database` - tên của database
+- `ifExist` - bỏ qua việc xoá database nếu bằng `true`,  ngược lại sẽ đưa ra lỗi nếu database không tồn tại
 
-Drops database.
+Xoá bỏ database.
 
 ---
 
