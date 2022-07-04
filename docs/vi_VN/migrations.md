@@ -407,11 +407,11 @@ Xoá bỏ database.
 createSchema(schemaPath: string, ifNotExist?: boolean): Promise<void>
 ```
 
-- `schemaPath` - schema name. For SqlServer can accept schema path (e.g. 'dbName.schemaName') as parameter.
-If schema path passed, it will create schema in specified database
-- `ifNotExist` - skips creation if `true`, otherwise throws error if schema already exist
+- `schemaPath` - tên của schema. Với SqlServer ta có thể truyền schema path (VD: 'dbName.schemaName') như là tham số.
+Nếu schema path được truyền, nó sẽ tạo ra schema trong một database cụ thể
+- `ifNotExist` - bỏ qua nếu có giá trị là `true`, ngược lại sẽ đưa ra lỗi nếu schema đã tồn tại
 
-Creates a new table schema.
+Tạo một table schema mới.
 
 ---
 
@@ -419,13 +419,13 @@ Creates a new table schema.
 dropSchema(schemaPath: string, ifExist?: boolean, isCascade?: boolean): Promise<void>
 ```
 
-- `schemaPath` - schema name. For SqlServer can accept schema path (e.g. 'dbName.schemaName') as parameter.
-If schema path passed, it will drop schema in specified database
-- `ifExist` - skips deletion if `true`, otherwise throws error if schema was not found
-- `isCascade` - If `true`, automatically drop objects (tables, functions, etc.) that are contained in the schema.
-Used only in Postgres.
+- `schemaPath` - tên của schema. Với SqlServer ta có thể truyền schema path (VD: 'dbName.schemaName') như là tham số.
+Nếu schema path được truyền, nó sẽ xoá bỏ schema trong một database cụ thể
+- `ifExist` - bỏ qua việc xoá bỏ nếu có giá trị là `true`, ngược lại sẽ đưa ra lỗi nếu schema không tồn tại
+- `isCascade` - Nếu bằng `true`, sẽ tự động bỏ đi các objects (bảng, function, ...) có trong schema.
+Chỉ sử dụng được với Postgres.
 
-Drops a table schema.
+Xoá bỏ một table schema.
 
 ---
 
@@ -434,11 +434,11 @@ createTable(table: Table, ifNotExist?: boolean, createForeignKeys?: boolean, cre
 ```
 
 - `table` - Table object.
-- `ifNotExist` - skips creation if `true`, otherwise throws error if table already exist. Default `false`
-- `createForeignKeys` - indicates whether foreign keys will be created on table creation. Default `true`
-- `createIndices` - indicates whether indices will be created on table creation. Default `true`
+- `ifNotExist` - bỏ qua việc tạo bảng nếu bằng `true`, ngược lại sẽ đưa ra lỗi nếu bảng đã tồn tại. Giá trị mặc định là `false`
+- `createForeignKeys` - được chỉ định khi muốn tạo khoá ngoại cùng lúc với quá trình tạo bảng. Giá trị mặc định là `true`
+- `createIndices` - được chỉ định khi muốn tạo các indices cùng lúc với quá trình tạo bảng. Giá trị mặc định là `true`
 
-Creates a new table.
+Tạo một bảng mới.
 
 ---
 
@@ -446,12 +446,12 @@ Creates a new table.
 dropTable(table: Table|string, ifExist?: boolean, dropForeignKeys?: boolean, dropIndices?: boolean): Promise<void>
 ```
 
-- `table` - Table object or table name to be dropped
-- `ifExist` - skips dropping if `true`, otherwise throws error if table does not exist
-- `dropForeignKeys` - indicates whether foreign keys will be dropped on table deletion. Default `true`
-- `dropIndices` - indicates whether indices will be dropped on table deletion. Default `true`
+- `table` - Table object hoặc tên bảng sẽ bị xoá bỏ
+- `ifExist` - bỏ qua việc tạo bảng nếu bằng `true`, ngược lại sẽ đưa ra lỗi nếu bảng không tồn tại
+- `dropForeignKeys` - được chỉ định khi muốn xoá bỏ luôn các khoá ngoại khi tiến hành xoá bảng. Giá trị mặc định là `true`
+- `dropIndices` - được chỉ định khi indices sẽ bị loại bỏ khi tiến hành xoá bảng. Giá trị mặc định là `true`
 
-Drops a table.
+Xoá bỏ một bảng.
 
 ---
 
@@ -459,10 +459,10 @@ Drops a table.
 renameTable(oldTableOrName: Table|string, newTableName: string): Promise<void>
 ```
 
-- `oldTableOrName` - old Table object or name to be renamed
-- `newTableName` - new table name
+- `oldTableOrName` - tên cũ của bảng
+- `newTableName` - tên mới của bảng
 
-Renames a table.
+Thay đổi tên bảng.
 
 ---
 
@@ -470,10 +470,10 @@ Renames a table.
 addColumn(table: Table|string, column: TableColumn): Promise<void>
 ```
 
-- `table` - Table object or name
-- `column` - new column
+- `table` - Table object hoặc tên bảng
+- `column` - cột mới
 
-Adds a new column.
+Thêm cột mới.
 
 ---
 
@@ -481,10 +481,10 @@ Adds a new column.
 addColumns(table: Table|string, columns: TableColumn[]): Promise<void>
 ```
 
-- `table` - Table object or name
-- `columns` - new columns
+- `table` - Table object hoặc tên bảng
+- `columns` - các cột mới
 
-Adds a new column.
+Thêm nhiều cột mới vào bảng.
 
 ---
 
@@ -492,11 +492,11 @@ Adds a new column.
 renameColumn(table: Table|string, oldColumnOrName: TableColumn|string, newColumnOrName: TableColumn|string): Promise<void>
 ```
 
-- `table` - Table object or name
-- `oldColumnOrName` - old column. Accepts TableColumn object or column name
-- `newColumnOrName` - new column. Accepts TableColumn object or column name
+- `table` - Table object hoặc tên bảng
+- `oldColumnOrName` - cột cũ. Có thể là TableColumn object hoặc tên cột
+- `newColumnOrName` - cột mới. Có thể là TableColumn object hoặc tên cột
 
-Renames a column.
+Thay đổi tên cột.
 
 ---
 
@@ -504,11 +504,11 @@ Renames a column.
 changeColumn(table: Table|string, oldColumn: TableColumn|string, newColumn: TableColumn): Promise<void>
 ```
 
-- `table` - Table object or name
-- `oldColumn` -  old column. Accepts TableColumn object or column name
-- `newColumn` -  new column. Accepts TableColumn object
+- `table` - Table object hoặc tên bảng
+- `oldColumn` -  cột cũ. Có thể là TableColumn object hoặc tên cột
+- `newColumn` -  cột mới. Chỉ chấp nhận TableColumn object
 
-Changes a column in the table.
+Thay đổi một cột trong bảng.
 
 ---
 
@@ -516,12 +516,12 @@ Changes a column in the table.
 changeColumns(table: Table|string, changedColumns: { oldColumn: TableColumn, newColumn: TableColumn }[]): Promise<void>
 ```
 
-- `table` - Table object or name
-- `changedColumns` - array of changed columns.
-  + `oldColumn` - old TableColumn object
-  + `newColumn` - new TableColumn object
+- `table` - Table object hoặc tên bảng
+- `changedColumns` - mảng chứa thông tin thay đổi cột.
+  + `oldColumn` - TableColumn object cũ
+  + `newColumn` - TableColumn object mới
 
-Changes a columns in the table.
+Thay đổi một hoặc nhiều cột trong bảng.
 
 ---
 
@@ -529,10 +529,10 @@ Changes a columns in the table.
 dropColumn(table: Table|string, column: TableColumn|string): Promise<void>
 ```
 
-- `table` - Table object or name
-- `column` - TableColumn object or column name to be dropped
+- `table` - Table object hoặc tên bảng
+- `column` - TableColumn object hoặc tên cột sẽ bị xoá bỏ
 
-Drops a column in the table.
+Xoá một cột trong bảng.
 
 ---
 
@@ -540,10 +540,10 @@ Drops a column in the table.
 dropColumns(table: Table|string, columns: TableColumn[]): Promise<void>
 ```
 
-- `table` - Table object or name
-- `columns` - array of TableColumn objects to be dropped
+- `table` - Table object hoặc tên bảng
+- `columns` - mảng của các TableColumn objects sẽ bị xoá bỏ
 
-Drops a columns in the table.
+Xoá bỏ một hoặc nhiều cột trong bảng.
 
 ---
 
@@ -551,10 +551,10 @@ Drops a columns in the table.
 createPrimaryKey(table: Table|string, columnNames: string[]): Promise<void>
 ```
 
-- `table` - Table object or name
-- `columnNames` - array of column names which will be primary
+- `table` - Table object hoặc tên bảng
+- `columnNames` - mảng chứa tên các cột sẽ trở thành primary
 
-Creates a new primary key.
+Tạo một primary key mới.
 
 ---
 
