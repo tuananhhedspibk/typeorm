@@ -562,10 +562,10 @@ Tạo một primary key mới.
 updatePrimaryKeys(table: Table|string, columns: TableColumn[]): Promise<void>
 ```
 
-- `table` - Table object or name
-- `columns` - array of TableColumn objects which will be updated
+- `table` - Table object hoặc tên bảng
+- `columns` - mảng chứa các objects TableColumn sẽ được cập nhật
 
-Updates composite primary keys.
+Cập nhật composite primary keys.
 
 ---
 
@@ -573,7 +573,7 @@ Updates composite primary keys.
 dropPrimaryKey(table: Table|string): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 
 Drops a primary key.
 
@@ -583,12 +583,12 @@ Drops a primary key.
 createUniqueConstraint(table: Table|string, uniqueConstraint: TableUnique): Promise<void>
 ```
 
-- `table` - Table object or name
-- `uniqueConstraint` - TableUnique object to be created
+- `table` - Table object hoặc tên bảng
+- `uniqueConstraint` - TableUnique object sẽ được tạo
 
-Creates new unique constraint.
+Tạo một ràng buộc unique mới
 
-> Note: does not work for MySQL, because MySQL stores unique constraints as unique indices. Use `createIndex()` method instead.
+> Chú ý: không dùng cho MySQL, vì MySQL lưu trữ ràng buộc unique dưới dạng unique indices. Sử dụng `createIndex()` method để thay thế.
 
 ---
 
@@ -596,7 +596,7 @@ Creates new unique constraint.
 createUniqueConstraints(table: Table|string, uniqueConstraints: TableUnique[]): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `uniqueConstraints` - array of TableUnique objects to be created
 
 Creates new unique constraints.
@@ -609,7 +609,7 @@ Creates new unique constraints.
 dropUniqueConstraint(table: Table|string, uniqueOrName: TableUnique|string): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `uniqueOrName` - TableUnique object or unique constraint name to be dropped
 
 Drops an unique constraint.
@@ -622,7 +622,7 @@ Drops an unique constraint.
 dropUniqueConstraints(table: Table|string, uniqueConstraints: TableUnique[]): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `uniqueConstraints` - array of TableUnique objects to be dropped
 
 Drops an unique constraints.
@@ -635,7 +635,7 @@ Drops an unique constraints.
 createCheckConstraint(table: Table|string, checkConstraint: TableCheck): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `checkConstraint` - TableCheck object
 
 Creates new check constraint.
@@ -648,7 +648,7 @@ Creates new check constraint.
 createCheckConstraints(table: Table|string, checkConstraints: TableCheck[]): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `checkConstraints` - array of TableCheck objects
 
 Creates new check constraint.
@@ -661,7 +661,7 @@ Creates new check constraint.
 dropCheckConstraint(table: Table|string, checkOrName: TableCheck|string): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `checkOrName` - TableCheck object or check constraint name
 
 Drops check constraint.
@@ -674,7 +674,7 @@ Drops check constraint.
 dropCheckConstraints(table: Table|string, checkConstraints: TableCheck[]): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `checkConstraints` - array of TableCheck objects
 
 Drops check constraints.
@@ -687,7 +687,7 @@ Drops check constraints.
 createForeignKey(table: Table|string, foreignKey: TableForeignKey): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `foreignKey` - TableForeignKey object
 
 Creates a new foreign key.
@@ -698,7 +698,7 @@ Creates a new foreign key.
 createForeignKeys(table: Table|string, foreignKeys: TableForeignKey[]): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `foreignKeys` - array of TableForeignKey objects
 
 Creates a new foreign keys.
@@ -709,7 +709,7 @@ Creates a new foreign keys.
 dropForeignKey(table: Table|string, foreignKeyOrName: TableForeignKey|string): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `foreignKeyOrName` - TableForeignKey object or foreign key name
 
 Drops a foreign key.
@@ -720,7 +720,7 @@ Drops a foreign key.
 dropForeignKeys(table: Table|string, foreignKeys: TableForeignKey[]): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `foreignKeys` - array of TableForeignKey objects
 
 Drops a foreign keys.
@@ -731,7 +731,7 @@ Drops a foreign keys.
 createIndex(table: Table|string, index: TableIndex): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `index` - TableIndex object
 
 Creates a new index.
@@ -742,7 +742,7 @@ Creates a new index.
 createIndices(table: Table|string, indices: TableIndex[]): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `indices` - array of TableIndex objects
 
 Creates a new indices.
@@ -753,7 +753,7 @@ Creates a new indices.
 dropIndex(table: Table|string, index: TableIndex|string): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `index` - TableIndex object or index name
 
 Drops an index.
@@ -764,7 +764,7 @@ Drops an index.
 dropIndices(table: Table|string, indices: TableIndex[]): Promise<void>
 ```
 
-- `table` - Table object or name
+- `table` - Table object hoặc tên bảng
 - `indices` - array of TableIndex objects
 
 Drops an indices.
